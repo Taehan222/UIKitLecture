@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="UIKitDay02AlarmClock" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="jBS-Pl-kCO">
+                                <rect key="frame" x="10" y="149" width="373" height="36"/>
+                                <connections>
+                                    <action selector="changeDatePicker:" destination="BYZ-38-t0r" eventType="valueChanged" id="GCZ-nY-L9O"/>
+                                </connections>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="날짜, 시간을 설정하세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2n7-jY-zfN">
+                                <rect key="frame" x="116" y="415.66666666666669" width="161" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재시각: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73t-Mh-x29">
+                                <rect key="frame" x="162.66666666666666" y="354.66666666666669" width="68" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jBS-Pl-kCO" secondAttribute="trailing" constant="10" id="05x-fU-lU9"/>
+                            <constraint firstItem="2n7-jY-zfN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KBx-ae-alO"/>
+                            <constraint firstItem="jBS-Pl-kCO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="eld-7d-pOp"/>
+                            <constraint firstItem="2n7-jY-zfN" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="es3-VR-yzG"/>
+                            <constraint firstItem="jBS-Pl-kCO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="90" id="mIf-Wv-Wml"/>
+                            <constraint firstItem="2n7-jY-zfN" firstAttribute="top" secondItem="73t-Mh-x29" secondAttribute="bottom" constant="40" id="nkA-Ds-GxO"/>
+                            <constraint firstItem="73t-Mh-x29" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tZ2-C6-KyN"/>
+                            <constraint firstItem="jBS-Pl-kCO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vdA-e3-dMP"/>
+                            <constraint firstItem="jBS-Pl-kCO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="z1C-2d-OnA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="lblCurrentTime" destination="73t-Mh-x29" id="vs1-Aq-eiK"/>
+                        <outlet property="lblPickedTime" destination="2n7-jY-zfN" id="2Jt-pJ-hJn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="135.1145038167939" y="3.5211267605633805"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="UIKitDay02Ex02Modal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="mwp-kI-oyb">
+                                <rect key="frame" x="70" y="225" width="300" height="259"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vn2-vQ-CQH">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="XcH-3K-QNN"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="전체화면 모달"/>
+                                        <connections>
+                                            <action selector="showModal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zh9-tS-dMQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgy-vy-xaB">
+                                        <rect key="frame" x="0.0" y="73" width="300" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="MN3-GU-qsW"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="카드형 시트"/>
+                                        <connections>
+                                            <action selector="showModal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lPa-VJ-hp6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNi-WA-saq">
+                                        <rect key="frame" x="0.0" y="146" width="300" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Kdk-Wu-uJX"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="폼 시트"/>
+                                        <connections>
+                                            <action selector="showModal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S1R-nT-adT"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0S-Y1-YPW">
+                                        <rect key="frame" x="0.0" y="219" width="300" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="IHt-qx-Cot"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="팝오버 (iPad)"/>
+                                        <connections>
+                                            <action selector="showModal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fju-U1-du1"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="bXc-J5-82a"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mwp-kI-oyb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9A0-3B-tJQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mwp-kI-oyb" secondAttribute="trailing" constant="70" id="C6j-uK-WZN"/>
+                            <constraint firstItem="mwp-kI-oyb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="70" id="KJm-L5-ubf"/>
+                            <constraint firstItem="mwp-kI-oyb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="NNz-aa-0Gt"/>
+                            <constraint firstItem="mwp-kI-oyb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OvP-Uj-KMQ"/>
+                            <constraint firstItem="mwp-kI-oyb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="163" id="eAV-4M-Y8d"/>
+                            <constraint firstItem="mwp-kI-oyb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="rog-Yw-PR0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btn1" destination="vn2-vQ-CQH" id="eev-E7-yqT"/>
+                        <outlet property="btn2" destination="vgy-vy-xaB" id="Qu9-U1-pph"/>
+                        <outlet property="btn3" destination="KNi-WA-saq" id="ayo-nw-ce5"/>
+                        <outlet property="btn4" destination="u0S-Y1-YPW" id="2jC-Fh-59j"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140" y="4"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="AkL-LH-789">
+            <objects>
+                <viewController id="uak-7a-bIF" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="ModalViewController" id="H5Q-fv-HgS">
+                        <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="vUG-8v-CJn"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hXk-Vm-wdY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="915" y="4"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
