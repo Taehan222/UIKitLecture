@@ -15,7 +15,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var lblCurrentTime: UILabel!
     @IBOutlet weak var lblPickedTime: UILabel!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
