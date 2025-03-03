@@ -39,7 +39,6 @@ class CreateReviewViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    // MARK: - 리뷰 JSON 저장 및 불러오기
     func getReviewFileURL() -> URL {
         let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         return documentDirectory.appendingPathComponent("reviews.json")
@@ -72,10 +71,10 @@ class CreateReviewViewController: UIViewController {
             let decoder = JSONDecoder()
             reviews = try decoder.decode([Review].self, from: data)
         } catch {
-            print("기존 리뷰 파일 없음, 새로운 파일 생성")
+            print("리뷰 파일 없음 새로운 파일 생성")
         }
         
-        reviews.removeAll { $0.movieID == movieID } // 기존 리뷰 삭제 후 추가
+        reviews.removeAll { $0.movieID == movieID }
         let newReview = Review(movieID: movieID, text: reviewText)
         reviews.append(newReview)
         
@@ -85,7 +84,7 @@ class CreateReviewViewController: UIViewController {
             try data.write(to: fileURL)
             print("리뷰 저장 성공")
         } catch {
-            print("리뷰 저장 실패: \(error)")
+            print(error)
         }
     }
     

@@ -7,30 +7,18 @@
 
 import UIKit
 
-// 1. 영화 데이터를 담을 모델 정의 (Codable 채택)
-struct Movie: Codable {
-    let id: String
-    let title: String
-    let director: String
-    let releaseDate: String
-    let genre: String
-}
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     var movies = [Movie]()
-    var favoriteMovies = Set<String>() // 즐겨찾기한 영화 ID 저장
-    
+    var favoriteMovies = Set<String>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 220/255, alpha: 1.0)
-        collectionView.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 220/255, alpha: 1.0)
-        navigationController?.view.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 220/255, alpha: 1.0)
-        
+        setBackgroundColor()
         setupCollectionView()
         loadFavorites()
         loadMoviesFromJSON()
@@ -42,6 +30,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     
     
+    
+    func setBackgroundColor() {
+        view.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 220/255, alpha: 1.0)
+        collectionView.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 220/255, alpha: 1.0)
+        navigationController?.view.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 220/255, alpha: 1.0)
+    }
     
     func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
@@ -72,7 +66,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
     
-    // MARK: - UserDefaults 활용한 즐겨찾기 기능
     func loadFavorites() {
         if let savedFavorites = UserDefaults.standard.array(forKey: "favoriteMovies") as? [String] {
             favoriteMovies = Set(savedFavorites)
@@ -93,7 +86,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionView.reloadData() // UI 업데이트
     }
     
-    // MARK: - UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movies.count
     }
@@ -113,12 +105,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             cell.imageView.image = nil
         }
         
-        // 즐겨찾기 상태 UI 업데이트
         let isFavorite = favoriteMovies.contains(movie.id)
         let favoriteImage = isFavorite ? UIImage(systemName: "star.fill") : UIImage(systemName: "star")
         cell.favoriteButton.setImage(favoriteImage, for: .normal)
         
-        // 버튼 클릭 이벤트 추가
         cell.favoriteButtonAction = { [weak self] in
             self?.toggleFavorite(movieID: movie.id)
         }
@@ -126,7 +116,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return cell
     }
     
-    // MARK: - UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let detailVC = storyboard.instantiateViewController(withIdentifier: "ImageDetailViewController") as? ImageDetailViewController {
@@ -135,7 +124,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
     
-    // MARK: - 롱프레스 삭제 기능 추가
     @objc func handleLongPress(gesture: UILongPressGestureRecognizer) {
         let location = gesture.location(in: collectionView)
         if let indexPath = collectionView.indexPathForItem(at: location) {
