@@ -83,7 +83,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             favoriteMovies.insert(movieID)
         }
         saveFavorites()
-        collectionView.reloadData() // UI 업데이트
+        collectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -119,7 +119,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let detailVC = storyboard.instantiateViewController(withIdentifier: "ImageDetailViewController") as? ImageDetailViewController {
-            detailVC.selectedMovie = movies[indexPath.row] // Movie 객체 전달
+            detailVC.selectedMovie = movies[indexPath.row]
             navigationController?.pushViewController(detailVC, animated: true)
         }
     }
@@ -132,7 +132,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 alert.addAction(UIAlertAction(title: "취소", style: .cancel))
                 alert.addAction(UIAlertAction(title: "삭제", style: .destructive, handler: { _ in
                     let movie = self.movies[indexPath.row]
-                    // 삭제된 영화가 즐겨찾기에 있다면 함께 삭제
+                    
                     self.favoriteMovies.remove(movie.id)
                     self.movies.remove(at: indexPath.row)
                     self.collectionView.deleteItems(at: [indexPath])
